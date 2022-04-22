@@ -3,17 +3,17 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
+  "author": "michael.carolin@simpleviewinc.com",
+  "license": "ISC",
+  "homepage": "https://github.com/mpcarolin/rd-training-client#readme",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@simpleview/sv-graphql-client": "2.0.1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mpcarolin/rd-training-client.git"
-  },
-  "author": "michael.carolin@simpleviewinc.com",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/mpcarolin/rd-training-client/issues"
-  },
-  "homepage": "https://github.com/mpcarolin/rd-training-client#readme"
+  }
 }
