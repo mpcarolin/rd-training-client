@@ -1,7 +1,4 @@
-const {
-  query,
-  nullToUndefined
-} = require('@simpleview/sv-graphql-client')
+const { query } = require('@simpleview/sv-graphql-client')
 
 class People {
 
@@ -11,7 +8,7 @@ class People {
   }
 
   async find ({ fields, headers, context, filter }) {
-    const results = await query({
+    return await query({
       url: this._graphUrl,
       query: `query FindPeople($filter: training_people_find_input) {
         training {
@@ -21,16 +18,14 @@ class People {
         }
       }`,
       headers,
-      variables: { filter } 
+      variables: { filter },
+      clean: true,
+      key: 'training.training_people_find'
     })
-
-    nullToUndefined(results) // mutates results in-place
-
-    return results
   }
 
   async insert ({ fields, headers, context, input }) {
-    const results = await query({
+    return await query({
       url: this._graphUrl,
       query: `mutation InsertPeople($input: [training_people_insert_input!]!) {
         training {
@@ -40,16 +35,14 @@ class People {
         }
       }`,
       headers,
-      variables: { input } 
+      variables: { input },
+      clean: true,
+      key: 'training.training_people_insert'
     })
-
-    nullToUndefined(results) // mutates results in-place
-
-    return results
   }
 
   async remove ({ fields, headers, context, filter }) {
-    const results = await query({
+    return query({
       url: this._graphUrl,
       query: `mutation RemovePeople($filter: training_people_remove_input) {
         training {
@@ -59,12 +52,10 @@ class People {
         }
       }`,
       headers,
-      variables: { filter } 
+      variables: { filter },
+      clean: true,
+      key: 'training.training_people_remove'
     })
-
-    nullToUndefined(results) // mutates results in-place
-
-    return results
   }
 
 }

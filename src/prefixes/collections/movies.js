@@ -1,7 +1,4 @@
-const {
-  query,
-  nullToUndefined
-} = require('@simpleview/sv-graphql-client')
+const { query } = require('@simpleview/sv-graphql-client')
 
 class Movies {
 
@@ -11,7 +8,7 @@ class Movies {
   }
 
   async find ({ fields, headers, context, filter }) {
-    const results = await query({
+    return await query({
       url: this._graphUrl,
       query: `query FindMovies($filter: training_movies_find_input) {
         training {
@@ -21,16 +18,14 @@ class Movies {
         }
       }`,
       headers,
-      variables: { filter } 
+      variables: { filter },
+      clean: true,
+      key: 'training.training_movies_find'
     })
-
-    nullToUndefined(results) // mutates results in-place
-
-    return results
   }
 
   async insert ({ fields, headers, context, input }) {
-    const results = await query({
+    return await query({
       url: this._graphUrl,
       query: `mutation InsertMovies($input: [training_movies_insert_input!]!) {
         training {
@@ -40,16 +35,14 @@ class Movies {
         }
       }`,
       headers,
-      variables: { input } 
+      variables: { input },
+      clean: true,
+      key: 'training.training_movies_insert'
     })
-
-    nullToUndefined(results) // mutates results in-place
-
-    return results
   }
 
   async remove ({ fields, headers, context, filter }) {
-    const results = await query({
+    return await query({
       url: this._graphUrl,
       query: `mutation RemoveMovies($filter: training_movies_remove_input) {
         training {
@@ -59,12 +52,10 @@ class Movies {
         }
       }`,
       headers,
-      variables: { filter } 
+      variables: { filter },
+      clean: true,
+      key: 'training.training_movies_remove'
     })
-
-    nullToUndefined(results) // mutates results in-place
-
-    return results
   }
 }
 
