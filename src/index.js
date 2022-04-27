@@ -1,3 +1,3 @@
 module.exports = { 
-  ...require('./prefixes/training')
+	...require('./prefixes/training')
 }
