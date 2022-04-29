@@ -11,12 +11,12 @@ class People {
 		return await query({
 			url: this._graphUrl,
 			query: `query FindPeople($filter: training_people_find_input) {
-        training {
-          training_people_find(filter: $filter) {
-            ${fields}
-          }
-        }
-      }`,
+				training {
+					training_people_find(filter: $filter) {
+						${fields}
+					}
+				}
+			}`,
 			headers,
 			variables: { filter },
 			clean: true,
@@ -28,12 +28,12 @@ class People {
 		return await query({
 			url: this._graphUrl,
 			query: `mutation InsertPeople($input: [training_people_insert_input!]!) {
-        training {
-          training_people_insert(input: $input) {
-            ${fields}
-          }
-        }
-      }`,
+				training {
+					training_people_insert(input: $input) {
+						${fields}
+					}
+				}
+			}`,
 			headers,
 			variables: { input },
 			clean: true,
@@ -45,12 +45,12 @@ class People {
 		return query({
 			url: this._graphUrl,
 			query: `mutation RemovePeople($filter: training_people_remove_input) {
-        training {
-          training_people_remove(filter: $filter) {
-            ${fields}
-          }
-        }
-      }`,
+				training {
+					training_people_remove(filter: $filter) {
+						${fields}
+					}
+				}
+			}`,
 			headers,
 			variables: { filter },
 			clean: true,

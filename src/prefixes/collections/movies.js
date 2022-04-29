@@ -11,12 +11,12 @@ class Movies {
 		return await query({
 			url: this._graphUrl,
 			query: `query FindMovies($filter: training_movies_find_input) {
-        training {
-          training_movies_find(filter: $filter) {
-            ${fields}
-          }
-        }
-      }`,
+				training {
+					training_movies_find(filter: $filter) {
+						${fields}
+					}
+				}
+			}`,
 			headers,
 			variables: { filter },
 			clean: true,
@@ -28,12 +28,12 @@ class Movies {
 		return await query({
 			url: this._graphUrl,
 			query: `mutation InsertMovies($input: [training_movies_insert_input!]!) {
-        training {
-          training_movies_insert(input: $input) {
-            ${fields}
-          }
-        }
-      }`,
+				training {
+					training_movies_insert(input: $input) {
+						${fields}
+					}
+				}
+			}`,
 			headers,
 			variables: { input },
 			clean: true,
@@ -45,12 +45,12 @@ class Movies {
 		return await query({
 			url: this._graphUrl,
 			query: `mutation RemoveMovies($filter: training_movies_remove_input) {
-        training {
-          training_movies_remove(filter: $filter) {
-            ${fields}
-          }
-        }
-      }`,
+				training {
+					training_movies_remove(filter: $filter) {
+						${fields}
+					}
+				}
+			}`,
 			headers,
 			variables: { filter },
 			clean: true,
