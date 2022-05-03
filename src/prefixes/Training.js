@@ -1,4 +1,8 @@
-const { Movies, People } = require('./collections')
+const {
+	Movies,
+	People,
+	Test
+} = require('./collections')
 
 class TrainingPrefix {
 
@@ -9,7 +13,13 @@ class TrainingPrefix {
 
 		this.people = new People({ graphUrl, graphServer })
 		this.movies = new Movies({ graphUrl, graphServer })
+
+		// expose the test collection only in development environments
+		this.test = process.env.NODE_ENV !== 'production'
+			? new Test({ graphUrl, graphServer })
+			: null
 	}
+
 }
 
 module.exports = { TrainingPrefix }

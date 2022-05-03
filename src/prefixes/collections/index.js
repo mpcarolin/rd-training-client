@@ -1,4 +1,5 @@
 module.exports = {
 	...require('./movies'),
-	...require('./people')
+	...require('./people'),
+	...require('./test')
 }
