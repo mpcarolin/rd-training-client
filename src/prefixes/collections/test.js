@@ -12,40 +12,6 @@ class Test {
 		this._graphServer = graphServer 
 	}
 
-	async insertPeople({ fields = defaultFields, headers, context, input } = {}) {
-		return await query({
-			url: this._graphUrl,
-			query: `mutation TestInsertPeople($input: [training_test_people_insert_input!]!) {
-				training {
-					training_test_insert_people(input: $input)  {
-						${fields}
-					}
-				}
-			}`,
-			variables: { input },
-			headers,
-			clean: true,
-			key: 'training.training_test_insert_people'
-		})
-	}
-
-	async insertMovies({ fields = defaultFields, headers, context, input } = {}) {
-		return await query({
-			url: this._graphUrl,
-			query: `mutation TestInsertMovies($input: [training_test_movies_insert_input!]!) {
-				training {
-					training_test_insert_movies(input: $input) {
-						${fields}
-					}
-				}
-			}`,
-			variables: { input },
-			headers,
-			clean: true,
-			key: 'training.training_test_insert_movies'
-		})
-	}
-
 	async clearDB({ fields = defaultFields, headers, context, input } = {}) {
 		return await query({
 			url: this._graphUrl,
@@ -76,7 +42,6 @@ class Test {
 			clean: true,
 			key: 'training.training_test_setup'
 		})
-
 	}
 }
 
