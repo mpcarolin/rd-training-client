@@ -1,3 +1,7 @@
+const {
+	Movies,
+	People,
+} = require('./collections')
 const { query } = require('@simpleview/sv-graphql-client')
 
 const defaultFields = `
@@ -5,13 +9,18 @@ const defaultFields = `
 	message
 `
 
-class Test {
+class TrainingPrefix {
 
-	constructor ({ graphUrl, graphServer }) {
-		this._graphUrl = graphUrl 
-		this._graphServer = graphServer 
+	constructor({ graphUrl, graphServer }) {
+		this.name = 'training'
+		this._graphUrl = graphUrl
+		this._graphServer = graphServer
+
+		this.people = new People({ graphUrl, graphServer })
+		this.movies = new Movies({ graphUrl, graphServer })
 	}
 
+	// for testing
 	async clearDB({ fields = defaultFields, headers, context, input } = {}) {
 		return await query({
 			url: this._graphUrl,
@@ -28,6 +37,7 @@ class Test {
 		})
 	}
 
+	// for testing
 	async setup({ fields = defaultFields, headers, context, input } = {}) {
 		return await query({
 			url: this._graphUrl,
@@ -43,6 +53,7 @@ class Test {
 			key: 'training.training_test_setup'
 		})
 	}
+
 }
 
-module.exports = { Test }
+module.exports = { TrainingPrefix }

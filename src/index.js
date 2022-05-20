@@ -1,3 +1,3 @@
-module.exports = { 
-	...require('./prefixes/training')
-}
+const { TrainingPrefix } = require('./prefixes/TrainingPrefix')
+
+module.exports = { TrainingPrefix }

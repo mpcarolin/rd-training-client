@@ -1,5 +1,8 @@
+const { Movies } = require('./movies')
+const { People } = require('./people')
+
 module.exports = {
-	...require('./movies'),
-	...require('./people'),
-	...require('./test')
+	Movies,
+	People
 }
+
