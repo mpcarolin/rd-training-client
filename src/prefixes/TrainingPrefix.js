@@ -1,7 +1,5 @@
-const {
-	Movies,
-	People,
-} = require('./collections')
+const Movies = require('./collections/Movies')
+const People = require('./collections/People')
 const { query } = require('@simpleview/sv-graphql-client')
 
 const defaultFields = `
@@ -56,4 +54,4 @@ class TrainingPrefix {
 
 }
 
-module.exports = { TrainingPrefix }
+module.exports = TrainingPrefix
