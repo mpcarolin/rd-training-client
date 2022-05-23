@@ -57,7 +57,6 @@ class People {
 			key: 'training.training_people_remove'
 		})
 	}
-
 }
 
 

@@ -51,7 +51,6 @@ class TrainingPrefix {
 			key: 'training.training_test_setup'
 		})
 	}
-
 }
 
 module.exports = TrainingPrefix
